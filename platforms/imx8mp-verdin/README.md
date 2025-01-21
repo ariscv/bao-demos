@@ -1,4 +1,4 @@
-# Toradex Verfdin-IMX8MP
+# Toradex Verdin-IMX8MP
 
 <!--- instruction#1 -->
 ## 1) Setup SD card
@@ -23,7 +23,7 @@ Connect to the UART via the USB cable (in our setup /dev/ttyUSB3) with baud
 Open a new terminal and connect to it. For example:
 
 ```
-screen /dev/ttyUSB0 115200
+screen /dev/ttyUSB3 115200
 ```
 
 Reset the board.

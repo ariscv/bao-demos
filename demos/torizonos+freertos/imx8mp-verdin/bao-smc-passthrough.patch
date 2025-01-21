@@ -1,0 +1,54 @@
+diff --git a/src/arch/armv8/aborts.c b/src/arch/armv8/aborts.c
+index c3bfc4b..c5d24e8 100644
+--- a/src/arch/armv8/aborts.c
++++ b/src/arch/armv8/aborts.c
+@@ -6,6 +6,7 @@
+ #include <arch/aborts.h>
+ #include <arch/sysregs.h>
+ #include <arch/smcc.h>
++#include <arch/smc.h>
+ #include <cpu.h>
+ #include <vm.h>
+ #include <emul.h>
+@@ -74,9 +75,23 @@ long int standard_service_call(unsigned long _fn_num) {
+     return ret;
+ }
+ 
++#define UNUSED_ARG(x) (void)(x)
+ static inline void syscall_handler(unsigned long iss, unsigned long far,
+     unsigned long il, unsigned long ec)
+ {
++    struct smc_res res;
++    unsigned long x1;
++    unsigned long x2;
++    unsigned long x3;
++    UNUSED_ARG(res);
++    UNUSED_ARG(x1);
++    UNUSED_ARG(x2);
++    UNUSED_ARG(x3);
++    UNUSED_ARG(iss);
++    UNUSED_ARG(far);
++    UNUSED_ARG(il);
++    UNUSED_ARG(ec);
++
+     unsigned long fid = vcpu_readreg(cpu()->vcpu, 0);
+ 
+     long ret = SMCC_E_NOT_SUPPORTED;
+@@ -90,7 +105,16 @@ static inline void syscall_handler(unsigned long iss, unsigned long far,
+             ret = hypercall(fid & SMCC_FID_FN_NUM_MSK);
+             break;
+         default:
+-            WARNING("Unknown system call fid 0x%x", fid);
++            // ret = -1;
++            x1 = vcpu_readreg(cpu()->vcpu, 1);
++            x2 = vcpu_readreg(cpu()->vcpu, 2);
++            x3 = vcpu_readreg(cpu()->vcpu, 3);
++
++            /* WARNING("Unknown smc call fid 0x%x\n", fid); */
++            ret = (long int)smc_call(fid, x1, x2, x3, &res);
++            vcpu_writereg(cpu()->vcpu, 1, res.x1);
++            vcpu_writereg(cpu()->vcpu, 2, res.x2);
++            vcpu_writereg(cpu()->vcpu, 3, res.x3);
+     }
+ 
+     vcpu_writereg(cpu()->vcpu, 0, ret);

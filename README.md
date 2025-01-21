@@ -8,6 +8,7 @@ systems and targeting several supported platforms. The available demos are:
 * [Dual-guest Linux+FreeRTOS](demos/linux+freertos/README.md)
 * [Dual-Guest Linux+Zephyr](demos/linux+zephyr/README.md)
 * [Dual-Guest Zephyr+Baremetal](demos/zephyr+baremetal/README.md)
+* [Dual-Guest Torizon OS+FreeRTOS](demos/torizonos+freertos/README.md)
 
 
 ---
@@ -170,6 +171,7 @@ Build guests according to the target demo:
 * [Dual-guest Linux+FreeRTOS](demos/linux+freertos/README.md)
 * [Dual-Guest Linux+Zephyr](demos/linux+zephyr/README.md)
 * [Dual-Guest Zephyr+Baremetal](demos/zephyr+baremetal/README.md)
+* [Dual-Guest Torizon OS+FreeRTOS](demos/torizonos+freertos/README.md)
 
 
 ### B.4) Build Bao
@@ -219,6 +221,7 @@ Build the firmware and deploy the system according to the target platform:
 * [QEMU virt](platforms/qemu-aarch64-virt/README.md)
 * [FVP-A Aarch64](platforms/fvp-a/README.md)
 * [FVP-R Aarch64](platforms/fvp-r/README.md)
+* [iMX8MP-Verdin](platforms/imx8mp-verdin/README.md)
 
 #### AArch32 platforms:
 * [FVP-A Aarch32](platforms/fvp-a-aarch32/README.md)
@@ -244,31 +247,32 @@ Build the firmware and deploy the system according to the target platform:
 | FVP-A AArch32        | fvp-a-aarch32     | aarch32 |
 | FVP-R AArch32        | fvp-r-aarch32     | aarch32 |
 | QEMU RV64 virt       | qemu-riscv64-virt | riscv64 |
-| iMX8MQ Verdin Dahlia | qemu-riscv64-virt | riscv64 |
+| iMX8MP Verdin Dahlia | imx8mp-verdin     | aarch64 |
 
-|                  | DEMO             |
-| ---------------- | ---------------- |
-| Baremetal guest  | baremetal        |
-| Linux+FreeRTOS   | linux+freertos   |
-| Linux+Zephyr     | linux+zephyr     |
-| Zephyr+Baremetal | zephyr+baremetal |
+|                     | DEMO               |
+| ------------------- | ------------------ |
+| Baremetal guest     | baremetal          |
+| Linux+FreeRTOS      | linux+freertos     |
+| Linux+Zephyr        | linux+zephyr       |
+| Zephyr+Baremetal    | zephyr+baremetal   |
+| Torizon OS+FreeRTOS | torizonos+freertos |
 
 ## Appendix II
 
-|                   | baremetal | linux+freertos | linux+zephyr | zephyr+baremetal |
-| ----------------- | --------- | -------------- | ------------ | ---------------- |
-| zcu102            | x         | x              |              |                  |
-| zcu104            | x         | x              |              |                  |
-| imx8qm            | x         | x              |              |                  |
-| imx8mq-verdin     | x         | x              |              |                  |
-| tx2               | x         | x              |              |                  |
-| rpi4              | x         | x              | x            |                  |
-| qemu-aarch64-virt | x         | x              | x            |                  |
-| fvp-a-aarch64     | x         | x              | x            | x                |
-| fvp-a-aarch32     | x         | x              | x            | x                |
-| fvp-r-aarch64     | x         | x              | x            | x                |
-| fvp-r-aarch32     | x         |                |              | x                |
-| qemu-riscv64-virt | x         | x              |              |                  |
+|                   | baremetal | linux+freertos | linux+zephyr | zephyr+baremetal | torizonos+freertos |
+| ----------------- | --------- | -------------- | ------------ | ---------------- | ------------------ |
+| zcu102            | x         | x              |              |                  |                    |
+| zcu104            | x         | x              |              |                  |                    |
+| imx8qm            | x         | x              |              |                  |                    |
+| imx8mp-verdin     | x         | x              |              |                  | x                  |
+| rpi4              | x         | x              | x            |                  |                    |
+| qemu-aarch64-virt | x         | x              | x            |                  |                    |
+| fvp-a-aarch64     | x         | x              | x            | x                |                    |
+| fvp-a-aarch32     | x         | x              | x            | x                |                    |
+| fvp-r-aarch64     | x         | x              | x            | x                |                    |
+| fvp-r-aarch32     | x         |                |              | x                |                    |
+| qemu-riscv64-virt | x         | x              |              |                  |                    |
+| tx2               | x         | x              |              |                  |                    |
 
 
 ---
@@ -286,6 +290,7 @@ Build the firmware and deploy the system according to the target platform:
 | mkimage                 | 20.10   |
 | cmake                   | 3.20.0  |
 | ninja                   | 1.10.1  |
+| swit                   | 1.10.1  |
 
 
 <!-- Links -->
