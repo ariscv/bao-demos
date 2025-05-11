@@ -1,5 +1,5 @@
-# opensbi_repo:=https://github.com/ariscv/opensbi.git
-opensbi_repo:=https://github.com/ariscv/opensbi-bao.git
+# opensbi_repo:=git@github.com:ariscv/opensbi.git
+opensbi_repo:=git@github.com:ariscv/opensbi-bao.git
 opensbi_version:=bao/demo
 opensbi_src:=$(wrkdir_src)/opensbi
 

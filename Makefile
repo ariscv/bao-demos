@@ -71,7 +71,7 @@ environment+=BAO_DEMOS_SDCARD=/media/$$USER/boot
 
 all: platform 
 
-bao_repo:=https://github.com/ariscv/bao-hypervisor
+bao_repo:=git@github.com:ariscv/bao-hypervisor
 bao_version:=demo
 bao_src:=$(wrkdir_src)/bao
 bao_cfg_repo:=$(wrkdir_demo_imgs)/config
