@@ -1,10 +1,10 @@
-# opensbi_repo:=git@github.com:ariscv/opensbi.git
-opensbi_repo:=git@github.com:ariscv/opensbi-bao.git
+opensbi_repo:=git@github.com:ariscv/opensbi.git
+# opensbi_repo:=git@github.com:ariscv/bao-opensbi.git
 opensbi_version:=bao/demo
 opensbi_src:=$(wrkdir_src)/opensbi
 
 $(opensbi_src):
-	git clone --depth 1 --branch $(opensbi_version) $(opensbi_repo) $(opensbi_src)
+	git clone --branch $(opensbi_version) $(opensbi_repo) $(opensbi_src)
 
 define build-opensbi-payload
 $(strip $1): $(strip $2) $(opensbi_src) 
