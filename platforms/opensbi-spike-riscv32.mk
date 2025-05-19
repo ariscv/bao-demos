@@ -7,7 +7,7 @@ opensbi_src:=$(wrkdir_src)/opensbi
 opensbi_PLATFORM:=myspike
 
 $(opensbi_src):
-	git clone --branch $(opensbi_version) $(opensbi_repo) $(opensbi_src)
+	-git clone --branch $(opensbi_version) $(opensbi_repo) $(opensbi_src)
 
 define build-opensbi-payload
 $(strip $1): $(strip $2) $(opensbi_src) 

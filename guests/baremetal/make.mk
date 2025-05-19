@@ -3,7 +3,7 @@ baremetal_repo:=git@github.com:ariscv/bao-baremetal-guest.git
 baremetal_branch:=demo
 
 $(baremetal_src):
-	git clone $(baremetal_repo) $@ --branch $(baremetal_branch)
+	-git clone $(baremetal_repo) $@ --branch $(baremetal_branch)
 
 baremetal_bin:=$(baremetal_src)/build/$(PLATFORM)/baremetal.bin
 
