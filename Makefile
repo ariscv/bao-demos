@@ -119,5 +119,16 @@ clean: guests_clean bao_clean platform_clean
 distclean:
 	rm -rf $(wrkdir)
 
+run:
+	make -C .. bao -B
+	make -C $SPIKE_HOME IMAGE=/home/zz/spike-clic/code/bao-demos/wrkdir/srcs/opensbi/build/platform/myspike/firmware/fw_payload.bin run
+gdb:
+	/opt/riscv-rv64g-lp64/bin/riscv64-unknown-linux-gnu-gdb -ex "target remote localhost:1234" /home/zz/spike-clic/code/bao-demos/wrkdir/srcs/opensbi/build/platform/myspike/firmware/fw_payload.elf
+	# /opt/riscv-rv64g-lp64/bin/riscv64-unknown-linux-gnu-gdb -ex "target remote localhost:1234" /home/zz/spike-clic/code/bao-demos/wrkdir/srcs/bao/bin/spike-riscv32/baremetal/bao.elf
+	# add-symbol-file /home/zz/spike-clic/code/bao-demos/wrkdir/srcs/bao/bin/spike-riscv32/baremetal/bao.elf
+	# b sbi_trap_handler
+
+
+
 .PHONY: all clean guests bao platform
 .NOTPARALLEL:

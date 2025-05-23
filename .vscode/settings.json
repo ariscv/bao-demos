@@ -1,0 +1,14 @@
+{
+	"files.associations": {
+		"platform.h": "c",
+		"mem.h": "c",
+		"bao.h": "c",
+		"vm.h": "c",
+		"fences.h": "c",
+		"config.h": "c",
+		"string.h": "c",
+		"cpu.h": "c",
+		"sbi.h": "c",
+		"cstdint": "c"
+	}
+}
