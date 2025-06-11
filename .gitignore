@@ -1,1 +1,5 @@
 wrkdir*
+.cache/
+compile_commands*.json
+.vscode/
+
