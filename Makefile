@@ -128,7 +128,12 @@ gdb:
 	# add-symbol-file /home/zz/spike-clic/code/bao-demos/wrkdir/srcs/bao/bin/spike-riscv32/baremetal/bao.elf
 	# b sbi_trap_handler
 
-
+run1:
+	make -C .. bao -B \
+	&& make run \
+	IMAGE=/home/zz/spike-clic/code/bao-demos/wrkdir/srcs/opensbi/build/platform/myspike/firmware/fw_payload.bin \
+	ARGS+="-i /home/zz/spike-clic/code/bao-demos/wrkdir/imgs/spike-riscv32/baremetal/baremetal.bin@0x90000000" \
+	-C $SPIKE_HOME
 
 .PHONY: all clean guests bao platform
 .NOTPARALLEL:
