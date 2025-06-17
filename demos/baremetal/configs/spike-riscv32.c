@@ -21,24 +21,24 @@ struct config config = {
                     },
                 },
 
-                .dev_num = 2,
+                .dev_num = 1,
                 .devs =  (struct vm_dev_region[]) {
                     {   
                         /* UART2, PL011 */
-                        .pa = 0x9c0A0000,
-                        .va = 0x9c0A0000,
-                        .size = 0x10000,
+                        .pa = 0x0c000000,
+                        .va = 0x0c000000,
+                        .size = 0x01000000,
                         .interrupt_num = 1,
-                        .interrupts = (irqid_t[]) {38} 
-                    },
+                        .interrupts = (irqid_t[]) {1} 
+                    }/* ,
                     {   
                         .interrupt_num = 1,
-                        .interrupts = (irqid_t[]) {27} 
-                    }
+                        .interrupts = (irqid_t[]) {1} 
+                    } */
                 },
 
                 .arch = {
-                   .plic_base = 0xc000000,
+                   .plic_base = 0x1c000000,
                 }
             },
         }
